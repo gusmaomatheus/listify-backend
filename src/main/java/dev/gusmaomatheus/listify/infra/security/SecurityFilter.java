@@ -40,7 +40,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             }
 
             List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, authorities);
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.get(), null, authorities);
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
