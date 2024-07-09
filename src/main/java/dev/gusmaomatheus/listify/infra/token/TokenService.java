@@ -1,6 +1,6 @@
 package dev.gusmaomatheus.listify.infra.token;
 
-import dev.gusmaomatheus.listify.domain.user.User;
+import org.springframework.security.core.userdetails.User;
 
 public interface TokenService {
     String generateToken(User user);

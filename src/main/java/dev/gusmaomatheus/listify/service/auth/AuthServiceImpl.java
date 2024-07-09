@@ -51,6 +51,6 @@ public class AuthServiceImpl implements AuthService {
         Authentication authentication = securityConfig.authenticationManager(new AuthenticationConfiguration()).authenticate(usernamePasswordAuthenticationToken);
 
 
-        return token.generateToken((User) authentication.getPrincipal());
+        return token.generateToken((org.springframework.security.core.userdetails.User) authentication.getPrincipal());
     }
 }
