@@ -1,10 +1,8 @@
 package dev.gusmaomatheus.listify.infra.security;
 
-import dev.gusmaomatheus.listify.service.auth.AuthServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,11 +26,7 @@ public class SecurityConfig {
                 .csrf(CsrfConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize ->
-                        authorize
-                                .requestMatchers(HttpMethod.POST, "listify/api/auth/login").permitAll()
-                                .requestMatchers(HttpMethod.GET, "listify/api/auth/logout").permitAll()
-                                .requestMatchers(HttpMethod.POST, "listify/api/users/register").permitAll()
-                                .anyRequest().authenticated()
+                        authorize.anyRequest().permitAll()
                 ).addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
