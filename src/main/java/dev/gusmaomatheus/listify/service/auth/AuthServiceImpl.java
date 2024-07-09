@@ -1,6 +1,8 @@
 package dev.gusmaomatheus.listify.service.auth;
 
 import dev.gusmaomatheus.listify.domain.user.User;
+import dev.gusmaomatheus.listify.dto.auth.LoginRequestDTO;
+import dev.gusmaomatheus.listify.infra.token.TokenServiceImpl;
 import dev.gusmaomatheus.listify.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
+    private final TokenServiceImpl token;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -24,5 +27,10 @@ public class AuthServiceImpl implements AuthService {
         }
 
         return new org.springframework.security.core.userdetails.User(username, user.get().getPassword(), new ArrayList<>());
+    }
+
+    @Override
+    public String login(LoginRequestDTO request) {
+        return "";
     }
 }
