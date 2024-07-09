@@ -1,4 +1,4 @@
-package dev.gusmaomatheus.listify.infra.exception.exceptions;
+package dev.gusmaomatheus.listify.infra.exception.custom;
 
 public class UsernameAlreadyRegisteredException extends RuntimeException {
 

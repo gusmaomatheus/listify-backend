@@ -2,7 +2,7 @@ package dev.gusmaomatheus.listify.service.user;
 
 import dev.gusmaomatheus.listify.domain.user.User;
 import dev.gusmaomatheus.listify.dto.auth.RegisterRequestDTO;
-import dev.gusmaomatheus.listify.infra.exception.exceptions.UsernameAlreadyRegisteredException;
+import dev.gusmaomatheus.listify.infra.exception.custom.UsernameAlreadyRegisteredException;
 import dev.gusmaomatheus.listify.infra.security.SecurityConfig;
 import dev.gusmaomatheus.listify.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
